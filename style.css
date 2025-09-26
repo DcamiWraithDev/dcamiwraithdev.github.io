@@ -1,0 +1,281 @@
+/* ===== Root Colors ===== */
+:root {
+  --bg-body: #f4f4f9;
+  --color-text: #333;
+  --color-text-light: #555;
+  --color-primary: #1a1a1a;
+  --color-accent: #ffdd57;
+  --color-card-bg: #fff;
+  --color-tech-bg: #222;
+  --color-tech-hover: #1a1a1a;
+  --color-tech-text: #eaeaea;
+  --color-footer-text: #fff;
+  --color-error: #666;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-text);
+  background: var(--bg-body);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+  background: var(--color-primary);
+  color: var(--color-footer-text);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--color-footer-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+nav a.active {
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+
+/* ===== Main Content ===== */
+main {
+  flex: 1;
+  max-width: 950px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--color-card-bg);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* ===== Skills ===== */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+/* ===== Projects Grid ===== */
+.filter-buttons {
+  margin-bottom: 1.5rem;
+}
+
+.filter-buttons button {
+  margin: 0.3rem;
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: var(--color-footer-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-buttons button:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.3rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--color-card-bg);
+  padding: 1.2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.project-card h3 {
+  margin: 0.5rem 0 0.8rem 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+}
+
+.project-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--color-card-bg);
+  max-width: 720px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 16px;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.modal-content img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.modal-content h2 {
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-text);
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #ff5555;
+}
+
+/* ===== Techniques (cards) ===== */
+.tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.tech-card {
+  background: var(--color-tech-bg);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-tech-text);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+
+/* ===== Messages ===== */
+.error, .empty {
+  color: var(--color-error);
+  padding: 1rem;
+  font-style: italic;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--color-primary);
+  color: var(--color-footer-text);
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  main { padding: 1.5rem 0.8rem; }
+  .modal-content { padding: 1.5rem; }
+  .project-card h3 { font-size: 1.1rem; }
+  .project-card p { font-size: 0.9rem; }
+  .tech-card { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+}

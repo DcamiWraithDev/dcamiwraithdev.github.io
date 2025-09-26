@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Daniel - Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>🚀 My Projects</h1>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="filter-buttons">
+            <button onclick="filterProjects('all')">All</button>
+            <button onclick="filterProjects('web')">Web</button>
+            <button onclick="filterProjects('app')">Application</button>
+            <button onclick="filterProjects('game')">Game</button>
+            <button onclick="filterProjects('personal')">Personal</button>
+            <button onclick="filterProjects('other')">Other</button>
+        </div>
+
+        <div class="projects" id="projectsContainer"></div>
+    </main>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <button class="close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+            <img id="modalImg" src="" alt="" />
+            <h2 id="modalTitle"></h2>
+            <p id="modalDetails"></p>
+
+            <h3>What I Learned</h3>
+            <p id="modalLearned"></p>
+
+            <h3>Techniques Used</h3>
+            <div id="modalTech" class="tech-container"></div>
+
+            <p id="modalGithub"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Daniel | Portfolio</p>
+    </footer>
+
+    <script id="projects-data" type="application/json"></script>
+</body>
+</html>

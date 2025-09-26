@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Portfolio Website",
+    "image": "images/portfolio.png",
+    "short": "Test text...",
+    "details": "Very epic website",
+    "learned": "javascript...",
+    "tech": "HTML, CSS, JavaScript",
+    "category": "web",
+    "github": "N/A"
+  },
+  {
+    "title": "Studie Dashboard",
+    "image": "images/todo.png",
+    "short": "data viewing / filtering",
+    "details": "blah blah blah",
+    "learned": "C# connecting and classes",
+    "tech": "C#, SQL",
+    "category": "application",
+    "github": "N/A"
+  }
+]
