@@ -35,7 +35,7 @@
     "short": "showing data from a db",
     "details": "In this project I learned to show, calculate, and simulate a simple cassiere system.",
     "learned": "C# connecting to a database and classes, User Controlls.",
-    "tech": "C# SQL, Winforms",
+    "tech": "C#, SQL, Winforms",
     "category": "application",
     "github": "https://github.com/DcamiWraithDev/GroentenBoer"
   }
