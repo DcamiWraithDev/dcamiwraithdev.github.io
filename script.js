@@ -89,8 +89,8 @@ function openProject(project) {
 
   // GitHub link
   const githubEl = document.getElementById('modalGithub');
-  githubEl.innerHTML = project.github
-    ? 'GitHub: <a href="' + project.github + '" target="_blank">' + project.github + '</a>'
+  githubEl.innerHTML = project.link
+    ? 'GitHub: <a href="' + project.link + '" target="_blank">' + project.link + '</a>'
     : '';
 
   document.getElementById('projectModal').style.display = 'flex';

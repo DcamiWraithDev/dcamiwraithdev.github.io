@@ -1,13 +1,13 @@
 [
   {
     "title": "Portfolio Website",
-    "image": "images/portfolio.png",
+    "image": "images/pf.png",
     "short": "My Portfolio website",
     "details": "On this website you can view my Portfolio, including contact information, CV and all projects i have made.",
     "learned": "I learned to use JSON and JavaScript together!",
     "tech": "HTML, CSS, JavaScript, JSON",
     "category": "personal, web",
-    "github": "https://github.com/DcamiWraithDev/dcamiwraithdev.github.io "
+    "link": "https://github.com/DcamiWraithDev/dcamiwraithdev.github.io "
   },
     {
     "title": "Opendag Application",
@@ -17,7 +17,7 @@
     "learned": "Learned using C# and csv together and showing data out of the csv on screen",
     "tech": "C#, CSV, Winforms",
     "category": "app",
-    "github": "https://github.com/DcamiWraithDev/OpendagApp"
+    "link": "https://github.com/DcamiWraithDev/OpendagApp"
   },
   {
     "title": "Studie Dashboard",
@@ -27,7 +27,7 @@
     "learned": "C# connecting with DB and using classes from outside of other programs / projects.",
     "tech": "C#, SQL, Winforms",
     "category": "app",
-    "github": "https://github.com/DcamiWraithDev/Studie_Dashboard"
+    "link": "https://github.com/DcamiWraithDev/Studie_Dashboard"
   },
   {
     "title": "Groenten Boer",
@@ -37,6 +37,16 @@
     "learned": "C# connecting to a database and classes, User Controlls.",
     "tech": "C#, SQL, Winforms",
     "category": "app",
-    "github": "https://github.com/DcamiWraithDev/GroentenBoer"
+    "link": "https://github.com/DcamiWraithDev/GroentenBoer"
+  },
+  {
+    "title": "W.I.P.",
+    "image": "images/pf.png",
+    "short": "W.I.P.",
+    "details": "W.I.P.",
+    "learned": "W.I.P.",
+    "tech": "HTML, CSS, JavaScript, SQL, PHP",
+    "category": "web, other",
+    "link": "N/A"
   }
 ]
