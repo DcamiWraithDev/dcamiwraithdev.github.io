@@ -2,21 +2,41 @@
   {
     "title": "Portfolio Website",
     "image": "images/portfolio.png",
-    "short": "Test text...",
-    "details": "Very epic website",
-    "learned": "javascript...",
-    "tech": "HTML, CSS, JavaScript",
-    "category": "web",
-    "github": "N/A"
+    "short": "My Portfolio website",
+    "details": "On this website you can view my Portfolio, including contact information, CV and all projects i have made.",
+    "learned": "I learned to use JSON and JavaScript together!",
+    "tech": "HTML, CSS, JavaScript, JSON",
+    "category": "personal",
+    "github": "https://github.com/DcamiWraithDev/dcamiwraithdev.github.io "
+  },
+    {
+    "title": "Opendag Application",
+    "image": "images/oda.png",
+    "short": "using csv to show data",
+    "details": "Used C# to split up csv data, add data to csv via GUI, show the correct data from the csv on screen.",
+    "learned": "Learned using C# and csv together and showing data out of the csv on screen",
+    "tech": "C#, CSV, Winforms",
+    "category": "application",
+    "github": "https://github.com/DcamiWraithDev/OpendagApp"
   },
   {
     "title": "Studie Dashboard",
-    "image": "images/todo.png",
+    "image": "images/sdb.png",
     "short": "data viewing / filtering",
-    "details": "blah blah blah",
-    "learned": "C# connecting and classes",
-    "tech": "C#, SQL",
+    "details": "In this project I learned what an EDR (Entity Diagram Relations) is aswell as using multiple Tables, SQL Querries.",
+    "learned": "C# connecting with DB and using classes from outside of other programs / projects.",
+    "tech": "C#, SQL, Winforms",
     "category": "application",
-    "github": "N/A"
+    "github": "https://github.com/DcamiWraithDev/Studie_Dashboard"
+  },
+  {
+    "title": "Groenten Boer",
+    "image": "images/gb.png",
+    "short": "showing data from a db",
+    "details": "In this project I learned to show, calculate, and simulate a simple cassiere system.",
+    "learned": "C# connecting to a database and classes, User Controlls.",
+    "tech": "C# SQL, Winforms",
+    "category": "application",
+    "github": "https://github.com/DcamiWraithDev/GroentenBoer"
   }
 ]
