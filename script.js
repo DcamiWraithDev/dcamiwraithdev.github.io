@@ -1,21 +1,17 @@
-// ===== Simple JS for Projects =====
-
 let allProjects = [];
 
 // Initialize after page loads
 window.onload = function() {
-  // Get embedded JSON
-  const fallbackEl = document.getElementById('projects-data');
-  if (fallbackEl && fallbackEl.textContent.trim()) {
-    try {
-      allProjects = JSON.parse(fallbackEl.textContent);
+  fetch('projects.json') // Make sure this path is correct relative to your HTML
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(data => {
+      allProjects = data;
       renderProjects(allProjects);
-    } catch (e) {
-      showLoadError();
-    }
-  } else {
-    showLoadError();
-  }
+    })
+    .catch(showLoadError);
 };
 
 // Show error if projects can't load
@@ -65,10 +61,7 @@ function filterProjects(category) {
   if (category === 'all') {
     renderProjects(allProjects);
   } else {
-    const filtered = [];
-    for (let i = 0; i < allProjects.length; i++) {
-      if (allProjects[i].category === category) filtered.push(allProjects[i]);
-    }
+    const filtered = allProjects.filter(p => p.category === category);
     renderProjects(filtered);
   }
 }
@@ -84,13 +77,12 @@ function openProject(project) {
   const techContainer = document.getElementById('modalTech');
   techContainer.innerHTML = '';
   if (project.tech) {
-    const techs = project.tech.split(',');
-    for (let i = 0; i < techs.length; i++) {
+    project.tech.split(',').forEach(t => {
       const span = document.createElement('span');
       span.className = 'tech-card';
-      span.textContent = techs[i].trim();
+      span.textContent = t.trim();
       techContainer.appendChild(span);
-    }
+    });
   }
 
   // GitHub link
