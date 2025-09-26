@@ -34,7 +34,7 @@ function renderProjects(projects) {
     const project = projects[i];
 
     const card = document.createElement('div');
-    card.className = 'project-card ' + (project.category || '');
+    card.className = 'project-card ' + (project.category ? project.category.split(',').map(c => c.trim()).join(' ') : '');
     card.onclick = function() { openProject(project); };
 
     const img = document.createElement('img');
@@ -61,7 +61,9 @@ function filterProjects(category) {
   if (category === 'all') {
     renderProjects(allProjects);
   } else {
-    const filtered = allProjects.filter(p => p.category === category);
+    const filtered = allProjects.filter(p => 
+        p.category && p.category.split(',').map(c => c.trim()).includes(category)
+    );
     renderProjects(filtered);
   }
 }
