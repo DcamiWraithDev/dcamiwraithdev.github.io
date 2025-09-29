@@ -87,11 +87,14 @@ function openProject(project) {
     });
   }
 
-  // GitHub link
-  const githubEl = document.getElementById('modalGithub');
-  githubEl.innerHTML = project.link
-    ? 'GitHub: <a href="' + project.link + '" target="_blank">' + project.link + '</a>'
-    : '';
+const githubEl = document.getElementById('modalGithub');
+
+if (project.link && project.link.trim() !== "" && project.link.trim().toLowerCase() !== "n/a") {
+  githubEl.innerHTML = `<a href="${project.link}">${project.link}</a>`;
+} else {
+  githubEl.innerHTML = "";
+}
+
 
   document.getElementById('projectModal').style.display = 'flex';
 }
