@@ -123,11 +123,20 @@ window.onkeydown = function(e) {
 };
 
 function filterByTech(tech) {
-  const filtered = allProjects.filter(p =>
-    p.tech &&
-    p.tech.split(',').map(t => t.trim().toLowerCase()).includes(tech.toLowerCase())
-  );
+  // Decode URL encoding, bijvoorbeeld C%23 → C#
+  const decodedTech = decodeURIComponent(tech).trim().toLowerCase();
+
+  const filtered = allProjects.filter(p => {
+    if (!p.tech) return false;
+
+    // Split tech string en trim elk item
+    const techList = p.tech.split(',').map(t => t.trim().toLowerCase());
+
+    // Alleen tonen als exacte match
+    return techList.includes(decodedTech);
+  });
 
   renderProjects(filtered);
 }
+
 
