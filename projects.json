@@ -6,6 +6,7 @@
     "details": "On this website you can view my Portfolio, including contact information, CV and all projects i have made.",
     "learned": "I learned to use JSON and JavaScript together!",
     "tech": "HTML, CSS, JavaScript, JSON",
+    "techDisplay": "HTML, CSS, JavaScript, JSON",
     "category": "personal, web",
     "link": "https://github.com/DcamiWraithDev/dcamiwraithdev.github.io "
   },
@@ -15,7 +16,8 @@
     "short": "using csv to show data",
     "details": "Used C# to split up csv data, add data to csv via GUI, show the correct data from the csv on screen.",
     "learned": "Learned using C# and csv together and showing data out of the csv on screen",
-    "tech": "C#, CSV, Winforms",
+    "tech": "C-Sharp, CSV, Winforms",
+    "techDisplay": "C#, CSV, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/OpendagApp"
   },
@@ -25,7 +27,8 @@
     "short": "data viewing / filtering",
     "details": "In this project I learned what an EDR (Entity Diagram Relations) is aswell as using multiple Tables, SQL Querries.",
     "learned": "C# connecting with DB and using classes from outside of other programs / projects.",
-    "tech": "C#, SQL, Winforms",
+    "tech": "C-Sharp, SQL, Winforms",
+    "techDisplay": "C#, SQL, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/Studie_Dashboard"
   },
@@ -35,7 +38,8 @@
     "short": "showing data from a db",
     "details": "In this project I learned to show, calculate, and simulate a simple cassiere system.",
     "learned": "C# connecting to a database and classes, User Controlls.",
-    "tech": "C#, SQL, Winforms",
+    "tech": "C-Sharp, SQL, Winforms",
+    "techDisplay": "C#, SQL, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/GroentenBoer"
   },
@@ -46,6 +50,7 @@
     "details": "W.I.P.",
     "learned": "W.I.P.",
     "tech": "HTML, CSS, JavaScript, SQL, PHP",
+    "techDisplay": "HTML, CSS, JavaScript, SQL, PHP",
     "category": "web, other",
     "link": "N/A"
   }

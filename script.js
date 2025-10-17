@@ -16,21 +16,17 @@ function renderProjects(projects) {
     return;
   }
 
-  for (let i = 0; i < projects.length; i++) {
-    const project = projects[i];
-
+  projects.forEach(project => {
     const card = document.createElement('div');
-
-    // build class names from categories (use original values for display but normalized for matching)
     const catClasses = project.category ? normalizeList(project.category).join(' ') : '';
     card.className = 'project-card ' + catClasses;
-    card.onclick = function() { openProject(project); };
+    card.onclick = () => openProject(project);
 
     const img = document.createElement('img');
     img.className = 'project-img';
     img.src = project.image || '';
     img.alt = project.title || '';
-    img.onerror = function() { this.style.display = 'none'; };
+    img.onerror = () => img.style.display = 'none';
 
     const title = document.createElement('h3');
     title.textContent = project.title || '';
@@ -38,40 +34,31 @@ function renderProjects(projects) {
     const desc = document.createElement('p');
     desc.textContent = project.short || '';
 
-    card.appendChild(img);
-    card.appendChild(title);
-    card.appendChild(desc);
+    card.append(img, title, desc);
     container.appendChild(card);
-  }
+  });
 }
 
-// Filter projects by category (used by the buttons on projects.html)
+// Filter projects by category (buttons on projects.html)
 function filterProjects(category) {
-  if (!category || category === 'all') {
-    renderProjects(allProjects);
-    return;
-  }
+  if (!category || category === 'all') return renderProjects(allProjects);
 
   const wanted = category.trim().toLowerCase();
+  const filtered = allProjects.filter(p => normalizeList(p.category).includes(wanted));
 
-  const filtered = allProjects.filter(p => {
-    if (!p.category) return false;
-    const cats = normalizeList(p.category); // e.g. ['web','other']
-    return cats.includes(wanted);
-  });
-
+  renderProjects(filtered.length ? filtered : []);
   if (!filtered.length) {
-    const container = document.getElementById('projectsContainer');
-    container.innerHTML = `<p class="empty">No results found for “${category}”.</p>`;
-    return;
+    document.getElementById('projectsContainer').innerHTML =
+      `<p class="empty">No results found for “${category}”.</p>`;
   }
-
-  renderProjects(filtered);
 }
 
-// Filter projects by tech (used when coming from index.html?tech=...)
+// Filter projects by tech (index.html?tech=...)
 function filterByTech(tech) {
-  const decodedTech = decodeURIComponent(tech).trim().toLowerCase();
+  let decodedTech = decodeURIComponent(tech).trim().toLowerCase();
+
+  // Special case: C-Sharp -> C#
+  if (decodedTech === 'c-sharp') decodedTech = 'c#';
 
   const filtered = allProjects.filter(p => {
     if (!p.tech) return false;
@@ -79,9 +66,12 @@ function filterByTech(tech) {
     return techList.includes(decodedTech);
   });
 
-  renderProjects(filtered);
+  renderProjects(filtered.length ? filtered : []);
+  if (!filtered.length) {
+    document.getElementById('projectsContainer').innerHTML =
+      `<p class="empty">No results found for “${tech}”.</p>`;
+  }
 }
-
 
 // Open modal with full project info
 function openProject(project) {
@@ -90,24 +80,22 @@ function openProject(project) {
   document.getElementById('modalDetails').innerText = project.details || '';
   document.getElementById('modalLearned').innerText = project.learned || '';
 
-  // Techniques
+  // Techniques (display friendly)
   const techContainer = document.getElementById('modalTech');
   techContainer.innerHTML = '';
-  if (project.tech) {
-    project.tech.split(',').forEach(t => {
-      const span = document.createElement('span');
-      span.className = 'filter-tag';
-      span.textContent = t.trim();
-      techContainer.appendChild(span);
-    });
-  }
+  const displayTech = project.techDisplay || project.tech || '';
+  displayTech.split(',').forEach(t => {
+    const span = document.createElement('span');
+    span.className = 'filter-tag';
+    span.textContent = t.trim();
+    techContainer.appendChild(span);
+  });
 
   const githubEl = document.getElementById('modalGithub');
-  if (project.link && project.link.trim() !== "" && project.link.trim().toLowerCase() !== "n/a") {
-    // show text link instead of raw URL when possible
+  if (project.link && project.link.trim() && project.link.toLowerCase() !== 'n/a') {
     githubEl.innerHTML = `<a href="${project.link}" target="_blank" rel="noopener noreferrer">View repository</a>`;
   } else {
-    githubEl.innerHTML = "";
+    githubEl.innerHTML = '';
   }
 
   const modal = document.getElementById('projectModal');
@@ -123,15 +111,11 @@ function closeModal() {
 }
 
 // Close modal on outside click or ESC key
-window.onclick = function(e) {
-  if (e.target === document.getElementById('projectModal')) closeModal();
-};
-window.onkeydown = function(e) {
-  if (e.key === 'Escape') closeModal();
-};
+window.onclick = e => { if (e.target === document.getElementById('projectModal')) closeModal(); };
+window.onkeydown = e => { if (e.key === 'Escape') closeModal(); };
 
 // Initialize after page loads
-window.onload = function() {
+window.onload = () => {
   fetch('projects.json')
     .then(res => {
       if (!res.ok) throw new Error('Network response was not ok');
@@ -141,33 +125,19 @@ window.onload = function() {
       allProjects = data;
       renderProjects(allProjects);
 
-      // 👇 eigen parsing zodat C# werkt
-      let techParam = null;
-
-      // gebruik volledige URL zodat het '#' deel niet genegeerd wordt
-      const fullUrl = window.location.href;
-
-      // Probeer eerst standaard manier
-      const params = new URLSearchParams(window.location.search);
-      techParam = params.get('tech');
-
-      // Als dat niks oplevert, pak het deel zelf uit de URL
-      if (!techParam && fullUrl.includes('?tech=')) {
-        const raw = fullUrl.split('?tech=')[1];
-        // stop bij volgende & of #
-        techParam = raw.split('&')[0].split('#')[0];
+      // Check URL for tech filter
+      let techParam = new URLSearchParams(window.location.search).get('tech');
+      if (!techParam && window.location.href.includes('?tech=')) {
+        techParam = window.location.href.split('?tech=')[1].split('&')[0].split('#')[0];
       }
 
-      if (techParam) {
-        filterByTech(techParam);
-      }
+      if (techParam) filterByTech(techParam);
     })
     .catch(showLoadError);
 };
 
-
 // Show error if projects can't load
 function showLoadError() {
-  const container = document.getElementById('projectsContainer');
-  container.innerHTML = '<p class="error">Could not load projects.</p>';
-}
+  document.getElementById('projectsContainer').innerHTML =
+    '<p class="error">Could not load projects.</p>';
+};
