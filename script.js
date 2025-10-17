@@ -120,11 +120,30 @@ function openProject(project) {
   });
 
   const githubEl = document.getElementById('modalGithub');
-  if (project.link && project.link.trim() && project.link.toLowerCase() !== 'n/a') {
-    githubEl.innerHTML = `<a href="${project.link}" target="_blank" rel="noopener noreferrer">View repository</a>`;
-  } else {
-    githubEl.innerHTML = '';
+  githubEl.innerHTML = ''; // leeg eerst
+
+  if (project.link && project.link.trim().toLowerCase() !== 'n/a') {
+    // Split op comma voor meerdere links
+    const links = project.link.split(',').map(l => l.trim()).filter(Boolean);
+
+    links.forEach(url => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      
+      // Alleen hostname tonen
+      try {
+        a.textContent = new URL(url).hostname;
+      } catch {
+        a.textContent = url; // fallback als URL ongeldig is
+      }
+
+      githubEl.appendChild(a);
+      githubEl.appendChild(document.createElement('br')); // line break tussen links
+    });
   }
+
 
   const modal = document.getElementById('projectModal');
   modal.style.display = 'flex';
