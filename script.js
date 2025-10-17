@@ -2,7 +2,7 @@ let allProjects = [];
 
 // Initialize after page loads
 window.onload = function() {
-  fetch('projects.json') // Make sure this path is correct relative to your HTML
+  fetch('projects.json')
     .then(res => {
       if (!res.ok) throw new Error('Network response was not ok');
       return res.json();
@@ -10,9 +10,17 @@ window.onload = function() {
     .then(data => {
       allProjects = data;
       renderProjects(allProjects);
+
+      //Check of er een ?tech= parameter is in de URL
+      const params = new URLSearchParams(window.location.search);
+      const techParam = params.get('tech');
+      if (techParam) {
+        filterByTech(techParam);
+      }
     })
     .catch(showLoadError);
 };
+
 
 // Show error if projects can't load
 function showLoadError() {
@@ -113,3 +121,13 @@ window.onclick = function(e) {
 window.onkeydown = function(e) {
   if (e.key === 'Escape') closeModal();
 };
+
+function filterByTech(tech) {
+  const filtered = allProjects.filter(p =>
+    p.tech &&
+    p.tech.split(',').map(t => t.trim().toLowerCase()).includes(tech.toLowerCase())
+  );
+
+  renderProjects(filtered);
+}
+
