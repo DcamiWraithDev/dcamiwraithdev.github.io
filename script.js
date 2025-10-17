@@ -1,31 +1,9 @@
 let allProjects = [];
 
-// Initialize after page loads
-window.onload = function() {
-  fetch('projects.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Network response was not ok');
-      return res.json();
-    })
-    .then(data => {
-      allProjects = data;
-      renderProjects(allProjects);
-
-      //Check of er een ?tech= parameter is in de URL
-      const params = new URLSearchParams(window.location.search);
-      const techParam = params.get('tech');
-      if (techParam) {
-        filterByTech(techParam);
-      }
-    })
-    .catch(showLoadError);
-};
-
-
-// Show error if projects can't load
-function showLoadError() {
-  const container = document.getElementById('projectsContainer');
-  container.innerHTML = '<p class="error">Could not load projects.</p>';
+// Helper: normaliseer een comma-separated string naar array van lowercase trimmed items
+function normalizeList(str) {
+  if (!str || typeof str !== 'string') return [];
+  return str.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 }
 
 // Render all project cards
@@ -42,7 +20,10 @@ function renderProjects(projects) {
     const project = projects[i];
 
     const card = document.createElement('div');
-    card.className = 'project-card ' + (project.category ? project.category.split(',').map(c => c.trim()).join(' ') : '');
+
+    // build class names from categories (use original values for display but normalized for matching)
+    const catClasses = project.category ? normalizeList(project.category).join(' ') : '';
+    card.className = 'project-card ' + catClasses;
     card.onclick = function() { openProject(project); };
 
     const img = document.createElement('img');
@@ -64,24 +45,50 @@ function renderProjects(projects) {
   }
 }
 
-// Filter projects by category
+// Filter projects by category (used by the buttons on projects.html)
 function filterProjects(category) {
-  if (category === 'all') {
+  if (!category || category === 'all') {
     renderProjects(allProjects);
-  } else {
-    const filtered = allProjects.filter(p => 
-        p.category && p.category.split(',').map(c => c.trim()).includes(category)
-    );
-    renderProjects(filtered);
+    return;
   }
+
+  const wanted = category.trim().toLowerCase();
+
+  const filtered = allProjects.filter(p => {
+    if (!p.category) return false;
+    const cats = normalizeList(p.category); // e.g. ['web','other']
+    return cats.includes(wanted);
+  });
+
+  if (!filtered.length) {
+    const container = document.getElementById('projectsContainer');
+    container.innerHTML = `<p class="empty">No results found for “${category}”.</p>`;
+    return;
+  }
+
+  renderProjects(filtered);
 }
+
+// Filter projects by tech (used when coming from index.html?tech=...)
+function filterByTech(tech) {
+  const decodedTech = decodeURIComponent(tech).trim().toLowerCase();
+
+  const filtered = allProjects.filter(p => {
+    if (!p.tech) return false;
+    const techList = p.tech.split(',').map(t => t.trim().toLowerCase());
+    return techList.includes(decodedTech);
+  });
+
+  renderProjects(filtered);
+}
+
 
 // Open modal with full project info
 function openProject(project) {
   document.getElementById('modalTitle').innerText = project.title;
-  document.getElementById('modalImg').src = project.image;
-  document.getElementById('modalDetails').innerText = project.details;
-  document.getElementById('modalLearned').innerText = project.learned;
+  document.getElementById('modalImg').src = project.image || '';
+  document.getElementById('modalDetails').innerText = project.details || '';
+  document.getElementById('modalLearned').innerText = project.learned || '';
 
   // Techniques
   const techContainer = document.getElementById('modalTech');
@@ -95,16 +102,17 @@ function openProject(project) {
     });
   }
 
-const githubEl = document.getElementById('modalGithub');
+  const githubEl = document.getElementById('modalGithub');
+  if (project.link && project.link.trim() !== "" && project.link.trim().toLowerCase() !== "n/a") {
+    // show text link instead of raw URL when possible
+    githubEl.innerHTML = `<a href="${project.link}" target="_blank" rel="noopener noreferrer">View repository</a>`;
+  } else {
+    githubEl.innerHTML = "";
+  }
 
-if (project.link && project.link.trim() !== "" && project.link.trim().toLowerCase() !== "n/a") {
-  githubEl.innerHTML = `<a href="${project.link}">${project.link}</a>`;
-} else {
-  githubEl.innerHTML = "";
-}
-
-
-  document.getElementById('projectModal').style.display = 'flex';
+  const modal = document.getElementById('projectModal');
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
 }
 
 // Close modal
@@ -122,21 +130,44 @@ window.onkeydown = function(e) {
   if (e.key === 'Escape') closeModal();
 };
 
-function filterByTech(tech) {
-  // Decode URL encoding, bijvoorbeeld C%23 → C#
-  const decodedTech = decodeURIComponent(tech).trim().toLowerCase();
+// Initialize after page loads
+window.onload = function() {
+  fetch('projects.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(data => {
+      allProjects = data;
+      renderProjects(allProjects);
 
-  const filtered = allProjects.filter(p => {
-    if (!p.tech) return false;
+      // 👇 eigen parsing zodat C# werkt
+      let techParam = null;
 
-    // Split tech string en trim elk item
-    const techList = p.tech.split(',').map(t => t.trim().toLowerCase());
+      // gebruik volledige URL zodat het '#' deel niet genegeerd wordt
+      const fullUrl = window.location.href;
 
-    // Alleen tonen als exacte match
-    return techList.includes(decodedTech);
-  });
+      // Probeer eerst standaard manier
+      const params = new URLSearchParams(window.location.search);
+      techParam = params.get('tech');
 
-  renderProjects(filtered);
+      // Als dat niks oplevert, pak het deel zelf uit de URL
+      if (!techParam && fullUrl.includes('?tech=')) {
+        const raw = fullUrl.split('?tech=')[1];
+        // stop bij volgende & of #
+        techParam = raw.split('&')[0].split('#')[0];
+      }
+
+      if (techParam) {
+        filterByTech(techParam);
+      }
+    })
+    .catch(showLoadError);
+};
+
+
+// Show error if projects can't load
+function showLoadError() {
+  const container = document.getElementById('projectsContainer');
+  container.innerHTML = '<p class="error">Could not load projects.</p>';
 }
-
-
