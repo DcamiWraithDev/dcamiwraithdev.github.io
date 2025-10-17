@@ -6,7 +6,7 @@ function normalizeList(str) {
   return str.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 }
 
-// Render all project cards
+// Render all project cards (met techDisplay)
 function renderProjects(projects) {
   const container = document.getElementById('projectsContainer');
   container.innerHTML = '';
@@ -18,6 +18,8 @@ function renderProjects(projects) {
 
   projects.forEach(project => {
     const card = document.createElement('div');
+
+    // category classes
     const catClasses = project.category ? normalizeList(project.category).join(' ') : '';
     card.className = 'project-card ' + catClasses;
     card.onclick = () => openProject(project);
@@ -34,7 +36,18 @@ function renderProjects(projects) {
     const desc = document.createElement('p');
     desc.textContent = project.short || '';
 
-    card.append(img, title, desc);
+    // Tech display via techDisplay
+    const techDiv = document.createElement('div');
+    techDiv.className = 'tech-container';
+    const displayTech = project.techDisplay || project.tech || '';
+    displayTech.split(',').forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'filter-tag';
+      span.textContent = t.trim();
+      techDiv.appendChild(span);
+    });
+
+    card.append(img, title, desc, techDiv);
     container.appendChild(card);
   });
 }
@@ -55,10 +68,26 @@ function filterProjects(category) {
 
 // Filter projects by tech (index.html?tech=...)
 function filterByTech(tech) {
+  if (!tech) return;
+
   let decodedTech = decodeURIComponent(tech).trim().toLowerCase();
 
-  // Special case: C-Sharp -> C#
-  if (decodedTech === 'c-sharp') decodedTech = 'c#';
+  // Map URL query to JSON tech
+  const techMap = {
+    'c#': 'c-sharp',
+    'c-sharp': 'c-sharp',
+    'database-design': 'database design',
+    'html': 'html',
+    'css': 'css',
+    'javascript': 'javascript',
+    'python': 'python',
+    'sql': 'sql',
+    'csv': 'csv',
+    'winforms': 'winforms',
+    'php': 'php'
+  };
+
+  if (techMap[decodedTech]) decodedTech = techMap[decodedTech];
 
   const filtered = allProjects.filter(p => {
     if (!p.tech) return false;
@@ -80,7 +109,6 @@ function openProject(project) {
   document.getElementById('modalDetails').innerText = project.details || '';
   document.getElementById('modalLearned').innerText = project.learned || '';
 
-  // Techniques (display friendly)
   const techContainer = document.getElementById('modalTech');
   techContainer.innerHTML = '';
   const displayTech = project.techDisplay || project.tech || '';
@@ -110,22 +138,17 @@ function closeModal() {
   modal.setAttribute('aria-hidden', 'true');
 }
 
-// Close modal on outside click or ESC key
 window.onclick = e => { if (e.target === document.getElementById('projectModal')) closeModal(); };
 window.onkeydown = e => { if (e.key === 'Escape') closeModal(); };
 
-// Initialize after page loads
+// Initialize
 window.onload = () => {
   fetch('projects.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Network response was not ok');
-      return res.json();
-    })
+    .then(res => res.ok ? res.json() : Promise.reject('Failed to load'))
     .then(data => {
       allProjects = data;
       renderProjects(allProjects);
 
-      // Check URL for tech filter
       let techParam = new URLSearchParams(window.location.search).get('tech');
       if (!techParam && window.location.href.includes('?tech=')) {
         techParam = window.location.href.split('?tech=')[1].split('&')[0].split('#')[0];
@@ -136,8 +159,8 @@ window.onload = () => {
     .catch(showLoadError);
 };
 
-// Show error if projects can't load
+// Show load error
 function showLoadError() {
   document.getElementById('projectsContainer').innerHTML =
     '<p class="error">Could not load projects.</p>';
-};
+}
