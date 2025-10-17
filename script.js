@@ -96,7 +96,7 @@ function openProject(project) {
   if (project.tech) {
     project.tech.split(',').forEach(t => {
       const span = document.createElement('span');
-      span.className = 'tech-card';
+      span.className = 'filter-tag';
       span.textContent = t.trim();
       techContainer.appendChild(span);
     });

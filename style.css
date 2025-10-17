@@ -6,9 +6,7 @@
   --color-primary: #1a1a1a;
   --color-accent: #ffdd57;
   --color-card-bg: #fff;
-  --color-tech-bg: #222;
-  --color-tech-hover: #1a1a1a;
-  --color-tech-text: #eaeaea;
+  --color-filter-bg: #222;
   --color-footer-text: #fff;
   --color-error: #666;
 }
@@ -100,34 +98,8 @@ main {
   margin-top: 1rem;
 }
 
-.skills-list a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-
 
 /* ===== Projects Grid ===== */
-.filter-buttons {
-  margin-bottom: 1.5rem;
-}
-
-.filter-buttons button {
-  margin: 0.3rem;
-  padding: 0.55rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  background: var(--color-primary);
-  color: var(--color-footer-text);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.filter-buttons button:hover {
-  background: #555;
-  transform: translateY(-2px);
-}
 
 .projects {
   display: grid;
@@ -237,15 +209,26 @@ main {
   margin-top: 0.5rem;
 }
 
-.tech-card {
-  background: var(--color-tech-bg);
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
+.filter-tag {
+  background: var(--color-filter-bg); /* wit */
+  color: var(--color-footer-text); /* donkere tekst */
+  border-radius: 10px;
+  padding: 0.55rem 1.2rem;
   font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-tech-text);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  transition: transform 0.2s, background 0.2s, color 0.2s;
+  font-weight: 600;
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.filter-tag:hover {
+  color: var(--color-accent); /* geel */
+  border-color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transform: translateY(-2px);
 }
 
 
