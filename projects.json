@@ -1,7 +1,7 @@
 [
   {
     "title": "Portfolio Website",
-    "image": "images/pf.png",
+    "image": "img/pf.png",
     "short": "My Portfolio website",
     "details": "On this website you can view my Portfolio, including contact information, CV and all projects i have made.",
     "learned": "I learned to use JSON and JavaScript together!",
@@ -12,7 +12,7 @@
   },
     {
     "title": "Opendag Application",
-    "image": "images/oda.png",
+    "image": "img/oda.png",
     "short": "using csv to show data",
     "details": "Used C# to split up csv data, add data to csv via GUI, show the correct data from the csv on screen.",
     "learned": "Learned using C# and csv together and showing data out of the csv on screen",
@@ -23,7 +23,7 @@
   },
   {
     "title": "Studie Dashboard",
-    "image": "images/sdb.png",
+    "image": "img/sdb.png",
     "short": "Data uitlezen en filteren uit een database",
     "details": "In dit project heb ik geleerd hoe je een ERD (Entity Relationship Diagram) opstelt en hoe je met meerdere databasetabellen werkt. Daarnaast heb ik losse SQL-query’s geschreven en een duidelijke mappenstructuur opgezet met aparte classes per tabel en database model voor beter onderhoudbare code.",
     "learned": "Het opzetten van een databaseverbinding in C# met behulp van externe classes en projectstructuren.",
@@ -34,7 +34,7 @@
   },
   {
     "title": "Groenten Boer",
-    "image": "images/gb.png",
+    "image": "img/gb.png",
     "short": "showing data from a db",
     "details": "In this project I learned to show, calculate, and simulate a simple cassiere system.",
     "learned": "C# connecting to a database and classes, User Controlls.",
@@ -45,7 +45,7 @@
   },
   {
     "title": "W.I.P.",
-    "image": "images/pf.png",
+    "image": "img/pf.png",
     "short": "W.I.P.",
     "details": "W.I.P.",
     "learned": "W.I.P.",
