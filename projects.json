@@ -44,6 +44,17 @@
     "link": "https://github.com/DcamiWraithDev/GroentenBoer"
   },
   {
+    "title": "Weer API",
+    "image": "img/wapi.png",
+    "short": "Weergegevens ophalen en tonen met de WeerLive API in een C# WinForms-applicatie",
+    "details": "In dit project heb ik een C# WinForms-applicatie ontwikkeld die actuele weerinformatie ophaalt via de WeerLive API. De data wordt in JSON-formaat ingeladen, verwerkt en overzichtelijk weergegeven in de interface. Hiervoor heb ik gebruikgemaakt van aparte classes binnen de applicatie om de JSON-structuur te parsen en de API-data efficiënt te beheren.",
+    "learned": "Het werken met externe API’s, het verwerken van JSON-data en het dynamisch tonen van gegevens in C# WinForms.",
+    "tech": "C-Sharp, JSON, API, Winforms",
+    "techDisplay": "C#, JSON, API, Winforms",
+    "category": "app",
+    "link": "https://github.com/DcamiWraithDev/Weer_API"
+  },
+  {
     "title": "W.I.P.",
     "image": "img/pf.png",
     "short": "W.I.P.",
