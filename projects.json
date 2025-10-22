@@ -24,9 +24,9 @@
   {
     "title": "Studie Dashboard",
     "image": "images/sdb.png",
-    "short": "data viewing / filtering",
-    "details": "In this project I learned what an EDR (Entity Diagram Relations) is aswell as using multiple Tables, SQL Querries.",
-    "learned": "C# connecting with DB and using classes from outside of other programs / projects.",
+    "short": "Data uitlezen en filteren uit een database",
+    "details": "In dit project heb ik geleerd hoe je een ERD (Entity Relationship Diagram) opstelt en hoe je met meerdere databasetabellen werkt. Daarnaast heb ik losse SQL-query’s geschreven en een duidelijke mappenstructuur opgezet met aparte classes per tabel en database model voor beter onderhoudbare code.",
+    "learned": "Het opzetten van een databaseverbinding in C# met behulp van externe classes en projectstructuren.",
     "tech": "C-Sharp, SQL, Winforms",
     "techDisplay": "C#, SQL, Winforms",
     "category": "app",
