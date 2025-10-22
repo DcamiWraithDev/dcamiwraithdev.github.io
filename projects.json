@@ -41,7 +41,7 @@
     "tech": "C-Sharp, SQL, Winforms",
     "techDisplay": "C#, SQL, Winforms",
     "category": "app",
-    "link": "https://github.com/DcamiWraithDev/GroentenBoer"
+    "link": "unavailable.html"
   },
   {
     "title": "Weer API",
@@ -53,6 +53,39 @@
     "techDisplay": "C#, JSON, API, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/Weer_API"
+  },
+  {
+    "title": "2D Topdown Shooter Game",
+    "image": "img/tdsg.png",
+    "short": "T.B.A.",
+    "details": "T.B.A.",
+    "learned": "T.B.A.",
+    "tech": "C-Sharp, Unity, 2d,",
+    "techDisplay": "C#, Unity, 2d",
+    "category": "game",
+    "link": "unavailable.html"
+  },
+  {
+    "title": "Local Multiplayer Game",
+    "image": "img/lmgame.png",
+    "short": "T.B.A.",
+    "details": "T.B.A.",
+    "learned": "T.B.A.",
+    "tech": "C-Sharp, Unity, 2d,",
+    "techDisplay": "C#, Unity, 2d",
+    "category": "game",
+    "link": "unavailable.html"
+  },
+  {
+    "title": "Netflix Clone",
+    "image": "img/nfc.png",
+    "short": "Een eenvoudige Netflix-clone ontwikkeld als groepsproject met HTML, CSS, JavaScript en Bootstrap.",
+    "details": "Dit groepsproject had als doel om de lay-out en basisfunctionaliteiten van Netflix na te bouwen met behulp van HTML, CSS, JavaScript en Bootstrap. Het project hoefde niet volledig functioneel te zijn, maar richtte zich vooral op het nabouwen van de interface, samenwerking binnen het team en het efficiënt verdelen van taken binnen een korte ontwikkelperiode van twee weken.",
+    "learned": "Ervaring opgedaan met teamwork, het gebruik van Bootstrap en het vertalen van bestaande webontwerpen naar een werkende front-end.",
+    "tech": "HTML, CSS, JavaScript, Bootstrap",
+    "techDisplay": "HTML, CSS, JavaScript, Bootstrap",
+    "category": "web",
+    "link": "unavailable.html"
   },
   {
     "title": "W.I.P.",
