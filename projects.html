@@ -3,27 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>DJC Portfolio | Projects</title>
+    <title>DJC Portfolio | Projecten</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>My Projects</h1>
+        <h1>Mijn projecten</h1>
         <nav>
-            <a href="index.html">About</a>
-            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html" class="active">Over Mij</a>
+            <a href="projects.html">Projecten</a>
         </nav>
     </header>
 
     <main>
         <div class="filter-buttons">
-        <button class="filter-tag" onclick="filterProjects('all')">All</button>
+        <button class="filter-tag" onclick="filterProjects('all')">Alles</button>
         <button class="filter-tag" onclick="filterProjects('web')">Web</button>
-        <button class="filter-tag" onclick="filterProjects('app')">Application</button>
+        <button class="filter-tag" onclick="filterProjects('app')">Applicatie</button>
         <button class="filter-tag" onclick="filterProjects('game')">Game</button>
-        <button class="filter-tag" onclick="filterProjects('personal')">Personal</button>
-        <button class="filter-tag" onclick="filterProjects('other')">Other</button>
+        <button class="filter-tag" onclick="filterProjects('personal')">Eigen projecten</button>
+        <button class="filter-tag" onclick="filterProjects('other')">Andere projecten</button>
         </div>
 
         <div class="projects" id="projectsContainer"></div>
@@ -37,10 +37,10 @@
             <h2 id="modalTitle"></h2>
             <p id="modalDetails"></p>
 
-            <h3>What I Learned</h3>
+            <h3>Wat ik heb geleerd</h3>
             <p id="modalLearned"></p>
 
-            <h3>Techniques Used</h3>
+            <h3>Technieken gebruikt</h3>
             <div id="modalTech" class="tech-container"></div>
 
             <p id="modalGithub"></p>

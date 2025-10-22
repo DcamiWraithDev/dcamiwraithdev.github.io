@@ -98,7 +98,7 @@ function filterByTech(tech) {
   renderProjects(filtered.length ? filtered : []);
   if (!filtered.length) {
     document.getElementById('projectsContainer').innerHTML =
-      `<p class="empty">No results found for “${tech}”.</p>`;
+      `<p class="empty">Geen resulataten gevonden voor “${tech}”.</p>`;
   }
 }
 
@@ -181,5 +181,5 @@ window.onload = () => {
 // Show load error
 function showLoadError() {
   document.getElementById('projectsContainer').innerHTML =
-    '<p class="error">Could not load projects.</p>';
+    '<p class="error">Kon geen projecten laden.</p>';
 }
