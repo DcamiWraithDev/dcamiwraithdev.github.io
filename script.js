@@ -12,7 +12,7 @@ function renderProjects(projects) {
   container.innerHTML = '';
 
   if (!projects || projects.length === 0) {
-    container.innerHTML = '<p class="empty">No projects to show.</p>';
+    container.innerHTML = '<p class="empty">Geen projecten gevonden.</p>';
     return;
   }
 
@@ -62,7 +62,7 @@ function filterProjects(category) {
   renderProjects(filtered.length ? filtered : []);
   if (!filtered.length) {
     document.getElementById('projectsContainer').innerHTML =
-      `<p class="empty">No results found for “${category}”.</p>`;
+      `<p class="empty">Geen resultaten gevonden voor “${category}”.</p>`;
   }
 }
 
