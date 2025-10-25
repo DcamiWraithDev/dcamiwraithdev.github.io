@@ -108,5 +108,16 @@
     "techDisplay": "C#, JSON, API, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/DroneController"
+  },
+  {
+    "title": "Memory Match in C# Winforms",
+    "image": "img/mmgame.png",
+    "short": "Een C# WinForms-applicatie om Memory Match te spelen met een katten-thema voor twee spelers.",
+    "details": "In dit project heb ik samen met een klasgenoot een Memory Match-spel ontwikkeld met een katten-thema. Het spel ondersteunt twee spelers en bevat een timer. Het spel eindigt wanneer alle matches zijn gemaakt, waarbij de speler met de meeste matches wint, of wanneer de timer afloopt, in welk geval er geen winnaar is. Spelers proberen zoveel mogelijk matches te maken voordat het spel op een van deze manieren eindigt.",
+    "learned": "Ik heb geleerd om afbeeldingen te beheren, kaarten te randomizen, game-logica te implementeren en gebruikersinteractie te verwerken in C# WinForms.",
+    "tech": "C-Sharp, Winforms",
+    "techDisplay": "C#, Winforms",
+    "category": "app",
+    "link": "https://github.com/DcamiWraithDev/MemoryMatch"
   }
 ]
