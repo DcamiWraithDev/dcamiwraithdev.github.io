@@ -97,5 +97,16 @@
     "techDisplay": "HTML, CSS, JavaScript, SQL, PHP",
     "category": "web, other",
     "link": "unavailable.html"
+  },
+  {
+    "title": "Drone Controller",
+    "image": "img/dcp.png",
+    "short": "Een C# WinForms-applicatie waarmee een drone bestuurd kan worden via commando’s en JSON-pathbestanden.",
+    "details": "In dit project heb ik een C# WinForms-applicatie ontwikkeld waarmee een drone bestuurd kan worden via verschillende commando’s, zoals vooruit, achteruit, links, rechts, stijgen, dalen, roteren en landen. De besturing kan plaatsvinden via knoppen in de interface of met toetsen op het toetsenbord. De gebruiker kan ook de snelheid en rotatie instellen. Daarnaast is er een functie toegevoegd om vluchtpaden op te slaan, te laden en automatisch te laten uitvoeren met behulp van JSON-bestanden. Voor de communicatie met de drone is gebruikgemaakt van een externe library.",
+    "learned": "Ervaring opgedaan met externe libraries, het verwerken van JSON-data en het implementeren van besturingslogica in C# WinForms.",
+    "tech": "C-Sharp, JSON, API, Winforms",
+    "techDisplay": "C#, JSON, API, Winforms",
+    "category": "app",
+    "link": "https://github.com/DcamiWraithDev/DroneController"
   }
 ]
