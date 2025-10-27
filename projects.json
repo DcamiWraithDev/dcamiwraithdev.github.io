@@ -56,12 +56,12 @@
   },
   {
     "title": "2D Topdown Shooter Game",
-    "image": "img/tdsg.png",
-    "short": "T.B.A.",
-    "details": "T.B.A.",
-    "learned": "T.B.A.",
-    "tech": "C-Sharp, Unity, 2d,",
-    "techDisplay": "C#, Unity, 2d",
+    "image": "img/tdsgame.png",
+    "short": "Een actievolle 2D top-down shooter waarin de speler vijanden bestrijdt, items verzamelt.",
+    "details": "De speler kan bewegen in alle richtingen met WASD, richten met de muis en vijanden bestrijden met een wapen dat herlaadt. Vijanden patrouilleren, detecteren de speler binnen een gezichtsveld en achtervolgen hem. Het spel bevat health-, ammo- en speciale power-ups, waaronder een Golden Freddy item dat willekeurig de speler kan belonen of schade toebrengen. De camera volgt de speler vloeiend, en UI-elementen tonen gezondheid en ammo in realtime.",
+    "learned": "Ik heb geleerd hoe ik een volledige 2D top-down shooter kan opzetten in Unity, inclusief player movement, camera follow, enemy AI met patrouille en gezichtsveld, damage systemen, UI voor health en ammo, en een probabilistisch beloningssysteem met speciale items.",
+    "tech": "C#, Unity, 2D physics, Rigidbody2D, UI, SceneManagement, Audio, Randomization, Prefab instantiation",
+    "techDisplay": "C#, Unity, 2D",
     "category": "game",
     "link": "unavailable.html"
   },
