@@ -68,11 +68,11 @@
   {
     "title": "Local Multiplayer Game",
     "image": "img/lmgame.png",
-    "short": "T.B.A.",
-    "details": "T.B.A.",
-    "learned": "T.B.A.",
-    "tech": "C-Sharp, Unity, 2d,",
-    "techDisplay": "C#, Unity, 2d",
+    "short": "Een 2D local multiplayer platformer met coöperatieve gameplay",
+    "details": "In deze game besturen twee spelers hun karakters om levels te voltooien, waarbij ze obstakels vermijden, puzzels oplossen en vijanden ontwijken. De game bevat mechanieken zoals springen, crouchen, super jumps, vijandelijke bewegingen, knoppen die deuren activeren, en een dynamische camera die beide spelers volgt. Verder zijn er een level-progressiesysteem, een end-level scherm met score en tijdsregistratie, en een pauze- en menu-systeem.",
+    "learned": "Ik heb geleerd hoe je een volledige 2D platformer opzet in Unity met C#, inclusief multiplayer input handling, physics-based movement, collider management, UI-elementen zoals sliders en canvas, en het structureren van een project met meerdere scripts die samenwerken. Ook heb ik ervaring opgedaan met saving/loading van progressie, animaties via sprites, en debuggen van complexe interacties.",
+    "tech": "C-Sharp, Unity, 2D",
+    "techDisplay": "C#, Unity, 2D",
     "category": "game",
     "link": "unavailable.html"
   },
