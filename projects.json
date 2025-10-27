@@ -1,7 +1,7 @@
 [
   {
     "title": "Portfolio Website",
-    "image": "img/pf.png",
+    "image": "img/pfw.png",
     "short": "Mijn portfolio website waarin projecten dynamisch worden geladen met JavaScript en JSON, gehost via GitHub.",
     "details": "Op deze website kunnen bezoekers mijn projecten bekijken en doorklikken naar de bijbehorende webpagina’s of GitHub-repositories. Daarnaast bevat de site informatie over mijzelf, mijn cv en links naar mijn GitHub- en LinkedIn-profiel. Bezoekers kunnen eenvoudig contact met mij opnemen via e-mail. De website wordt regelmatig bijgewerkt om de gebruiksvriendelijkheid en codekwaliteit te verbeteren.",
     "learned": "Ik heb geleerd hoe je met JSON en JavaScript dynamisch data kunt laden op een website en hoe je een project kunt hosten via GitHub Pages.",
