@@ -27,7 +27,7 @@
     "short": "Data uitlezen en filteren uit een database",
     "details": "In dit project heb ik geleerd hoe je een ERD (Entity Relationship Diagram) opstelt en hoe je met meerdere databasetabellen werkt. Daarnaast heb ik losse SQL-query’s geschreven en een duidelijke mappenstructuur opgezet met aparte classes per tabel en database model voor beter onderhoudbare code.",
     "learned": "Het opzetten van een databaseverbinding in C# met behulp van externe classes en projectstructuren.",
-    "tech": "C-Sharp, SQL, Winforms, Database-Design",
+    "tech": "C-Sharp, SQL, Winforms, Database Design",
     "techDisplay": "C#, SQL, Winforms, Database Design",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/Studie_Dashboard"
@@ -38,7 +38,7 @@
     "short": "Een kassasysteem voor een groenteboer waarmee producten per categorie kunnen worden geselecteerd, gewogen of per stuk verkocht, en automatisch de totaalprijs wordt berekend.",
     "details": "De applicatie is gebouwd in C# met WinForms en maakt gebruik van een MySQL-database om productgegevens zoals naam, prijs, afbeelding en verkoopt type (gewicht of stuk) op te halen. Producten kunnen via een dynamisch keypad en categorieknoppen worden toegevoegd aan een bestelling. Het systeem berekent automatisch de totaalprijs en laat producten verwijderen of resetten bij afrekenen. Bij dit project heb ik de code van GitHub gepulled en de database opnieuw opgebouwd. In de huidige versie werkt het ophalen van productafbeeldingen niet volledig, waardoor de UI geen productafbeeldingen toont.",
     "learned": "Het werken met een bestaande C# WinForms codebase, het beheren van een MySQL-database en het dynamisch laden van producten en invoer via een keypad.",
-    "tech": "C-Sharp, SQL, Winforms, Database-Design",
+    "tech": "C-Sharp, SQL, Winforms, Database Design",
     "techDisplay": "C#, SQL, Winforms, Database Design",
     "category": "app",
     "link": "unavailable.html"
