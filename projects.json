@@ -119,5 +119,16 @@
     "techDisplay": "C#, Winforms",
     "category": "app",
     "link": "https://github.com/DcamiWraithDev/MemoryMatch"
+  },
+  {
+    "title": "Boeken Dashboard",
+    "image": "img/bsd.png",
+    "short": "Een C# WinForms-applicatie om Boeken data te zien vanuit een database met filterfunctionaliteit en detailweergave.",
+    "details": "In dit project heb ik een C# WinForms-applicatie ontwikkeld waarmee een gebruiker boek gegevens kan bekijken die zijn opgeslagen in een database. De applicatie laat onderanderen zien: totaal aantal boeken, gemiddelde prijs, minimale en maximale pagina's. Meest en minst verkochte boeken worden ook weergegeven met de data: Titel, Prijs en Verkochte hoeveelheid van het boek. De gebruiker kan filteren op auteur, dit wordt dan netjes in de grafiek en de andere data geüpdated en weergegeven.",
+    "learned": "Ik heb geleerd hoe ik Aggregate functies kan gebruiken om alleen nodige en specifieke data uit een database kan halen en deze kan weergeven in een C# WinForms-applicatie. Ook heb ik geleerd hoe je grafieken kan maken en updaten op basis van gebruikersinput in WinForms.",
+    "tech": "C-Sharp, Winforms, SQL, Database Design",
+    "techDisplay": "C#, Winforms, SQL, Database Design",
+    "category": "app",
+    "link": "https://github.com/DcamiWraithDev/BooksDashboard"
   }
 ]
